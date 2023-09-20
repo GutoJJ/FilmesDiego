@@ -1,0 +1,274 @@
+@use 'mixins'
+$bg: #ffffff79
+*
+    margin: 0
+    padding: 0
+    color: #fff
+
+.wrapper
+    background: url("../img/bg.jpg")
+    background-position: center
+    background-size: cover
+    @include mixins.FlexColumn
+    width: 100%
+    min-height: 100vh
+
+.preload
+    @include mixins.FlexColumn
+    width: 100%
+    min-height: 100vh
+    backdrop-filter: blur(15px)
+
+h1,h2
+    font-family: 'Montserrat', sans-serif
+
+::-webkit-scrollbar
+    display: none
+    visibility: hidden
+
+.container
+    width: 90vw
+    background: #1f1f1fe4
+    background-position: center
+    background-size: cover
+    backdrop-filter: blur(25px)
+    height: 90vh
+    border-radius: 2rem
+    animation: goIn 1s
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+
+.topBar
+    width: 100%
+    height: 42px
+    background: #1f1f1f
+    display: flex
+    align-items: center
+    border-radius: 2rem 2rem 0rem 0rem
+    position: fixed
+    .botoes
+        @include mixins.FlexRow
+        position: absolute
+    div
+        margin-left: 13px
+        height: 20px
+        border-radius: 100%
+        aspect-ratio: 1/1
+        &:hover
+            cursor: pointer
+    .vermelho
+        margin-left: 30px
+        background: #f00
+        box-shadow: 0px 2px 4px 0px rgba(255, 0, 0, 0.10), 0px 7px 7px 0px rgba(255, 0, 0, 0.09), 0px 15px 9px 0px rgba(255, 0, 0, 0.05), 0px 27px 11px 0px rgba(255, 0, 0, 0.01), 0px 43px 12px 0px rgba(255, 0, 0, 0.00)
+    .amarelo
+        background: #ff0
+        box-shadow: 0px 2px 4px 0px rgba(255, 255, 0, 0.10), 0px 7px 7px 0px rgba(255, 255, 0, 0.09), 0px 15px 9px 0px rgba(255, 255, 0, 0.05), 0px 27px 11px 0px rgba(255, 255, 0, 0.01), 0px 43px 12px 0px rgba(255, 255, 0, 0.00)
+    .verde
+        background: #0f0
+        box-shadow: 0px 2px 4px 0px rgba(0, 238, 0, 0.10), 0px 7px 7px 0px rgba(0, 238, 0, 0.09), 0px 15px 9px 0px rgba(0, 238, 0, 0.05), 0px 27px 11px 0px rgba(0, 238, 0, 0.01), 0px 43px 12px 0px rgba(0, 238, 0, 0.00)
+    h2
+        text-align: center
+        width: 100%
+
+.content
+    font-family: monospace
+    padding: 15px
+    font-size: 20px
+    width: 100%
+    overflow-y: scroll
+    overflow-x: hidden
+    border-radius: 2rem
+
+span
+    color: #C3E88D
+
+.header-text
+    width: fit-content
+    padding-bottom: 10px
+    border-bottom: 3px dashed #C3E88D
+    margin-top: 42px
+
+p
+    margin-bottom: 5px
+
+.terminal
+    width: 100%
+    margin-top: 5px
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: flex-start
+    gap: 11px
+    input
+        font-family: monospace
+        font-size: 20px
+        width: 50%
+        outline: none
+        border: none
+        background: none
+        margin-bottom: 5px
+
+.color
+    color: #FFA500
+
+.diego
+    width: 150px
+    object-fit: cover
+    aspect-ratio: 1/1
+    animation: rotate 30s linear
+
+button
+    width: 100%
+    background: none
+    border: none
+    outline: none
+    text-align: start
+    justify-content: start
+    margin-left: 15px
+    margin-bottom: 5px
+    font-family: monospace
+    font-size: 20px
+    &:hover
+        cursor: pointer
+        color: #8B0000
+
+
+
+.lock
+    @include mixins.FlexColumn
+    height: 100vh
+    gap: 2vh
+    img
+        border-radius: 100%
+        aspect-ratio: 1/1
+        width: 20vw
+        height: fit-content
+    h1
+        font-size: 3rem
+
+    .entrar
+        width: 25vw
+        gap: .2rem
+        display: flex
+        flex-direction: row
+        align-items: flex-end
+        justify-content: flex-end
+.inp
+    width: 90%
+    height: 8vh
+    border-radius: 4vh
+    border: 0
+    background: $bg
+    font-size: 1.5rem
+    font-weight: 500
+    text-align: start
+    padding-left: 25px
+    color: #fff
+    outline: none
+    flex: 5
+    &::placeholder
+        color: #ffffffa8
+.btn
+    height: 8vh
+    aspect-ratio: 1/1
+    border-radius: 100%
+    border: 0
+    flex: 1
+    background: $bg
+    font-size: 2rem
+    font-weight: 700
+    transition: .5s
+    text-align: center
+    margin: 0
+    &:hover
+        cursor: pointer
+        scale: 105%
+        color: #fff
+
+.window
+    width: 70vw
+    height: 75vh
+    background: #f2f1f1da
+    backdrop-filter: blur(25px)
+    position: absolute !important
+    right: 2vw
+    top: 1vh
+    border-radius: 2rem
+    animation: goIn 1s
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+    #branco
+        background: #efefef
+        &:hover
+            cursor: move
+        h2
+            color: #000
+
+.cardContent
+    margin-top: 42px
+    padding: 10px
+    font-size: 12px
+    @include mixins.FlexRow
+    justify-content: flex-start
+    align-items: flex-start
+    gap: 2vw
+    .card-text
+        text-align: start
+        @include mixins.FlexColumn
+        justify-content: flex-start
+        align-items: flex-start
+        overflow: scroll
+        height: 100%
+        padding: 15px
+        gap: 3vh
+    
+    h2
+        color: #000
+        font-size: 18px
+    span
+        font-size: 14px
+        color: #000
+        font-weight: 500
+
+.poster
+    width: 20vw
+    border-radius: 1rem
+    aspect-ratio: 9/13
+    object-fit: cover
+    box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+
+
+@keyframes fadeOut
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@keyframes goIn
+    from
+        opacity: 0
+        scale: 80%
+    to
+        opacity: 1
+        scale: 100%
+
+@keyframes goOut
+    from
+        opacity: 1
+        scale: 100%
+    to 
+        opacity: 0
+        scale: 80%
+        
+
+@keyframes rotate
+    from
+        width: 150px
+    to
+        width: 600px

@@ -1,8 +1,8 @@
 import '../style/main.sass';
 import React, { useState, useEffect } from "react";
-import Diego from "../img/easter.png";
+import Diego from "../img/easter.png";//augustolindo
 import Detalhes from './detalhes.jsx';
-
+//augustolindo
 function Home() {
     const [inputValue, setInputValue] = useState('');
     const [passado, setPassado] = useState([]);
@@ -14,21 +14,21 @@ function Home() {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=pt-BR`)
             .then((response) => response.json())
-            .then((data) => {
+            .then((data) => {//augustolindo
                 setMovies(data.results);
             });
     }, [KEY]);
-    
+    let novoElemento;
     const handleKeyDown = (event) => { //comandos
         if (event.key === 'Enter') {
             event.preventDefault();
-            let separado = inputValue.split(" ");
-            let novoElemento;
+            let separado = inputValue.split(" ");//augustolindo
+
             switch (separado[0].toLowerCase()) {
                 case 'clear':
                     document.querySelector('.registro').innerHTML = '';
                     setTimeout(function () {
-                        document.querySelector('.registro').innerHTML = '';
+                        document.querySelector('.registro').innerHTML = '';//augustolindo
                     }, 1);
                     break;
                 case 'lindo':
@@ -44,13 +44,30 @@ function Home() {
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
                             <p>Listando filmes e séries...</p>
+                            <p>======================================</p>
                             {movies.map((movie) => {
                                 return (
-                                  <button className='color' onClick={() => handleClick(movie.id)}> <span>| </span>{movie.title} </button>                               
+                                    <button className='color' onClick={() => CriarCard(movie.id)}><span>| </span>{movie.title} </button>
                                 );
-
+                                //augustolindo
                             })}
-
+                            <p>======================================</p>
+                        </div>
+                    )
+                    break;//augustolindo
+                case 'qualquermerda':
+                    novoElemento = (
+                        <div key={passado.length}>
+                            <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
+                            <p>Vai aparecer qualquer <span>merda</span> na tela</p>
+                        </div>
+                    )
+                    break;
+                case 'burro':
+                    novoElemento = (
+                        <div key={passado.length}>
+                            <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
+                            <p><span>{separado[1] || "O usuário"}</span> é burro</p>
                         </div>
                     )
                     break;
@@ -62,7 +79,7 @@ function Home() {
                         </div>
                     )
                     break;
-                case 'joanaxmateus':
+                case 'joanaxmateus'://augustolindo
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
@@ -70,13 +87,14 @@ function Home() {
                         </div>
                     )
                     break;
-                default:
+                default://voseéfeio
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
                             <p>Comando Inválido!</p>
                         </div>
                     );
+                //augustolindo
             }
             setPassado([...passado, novoElemento]);
 
@@ -85,22 +103,31 @@ function Home() {
         }
     };
 
-    const handleClick = (id) => { //função de detalhes
+    const CriarCard = (id) => { //função de detalhes
         console.log(id);
-        let novoElemento = (
+        //augustolindo
+        novoElemento = (
             <div className='card' key={passado.length}>
-               <Detalhes movieId={id}/>   
+                <Detalhes movieId={id} />
+                <p>Exibindo detalhes...</p>
             </div>
-          
         );
         setPassado([...passado, novoElemento]);
     }
 
+    const removeWindowTerminal = () => {
+        document.querySelector(".container").style.animation = "goOut .5s";
+        setTimeout(function () {
+            document.querySelector(".wrapper").innerHTML = '';
+            location.reload();
+        },450);
+    }
+    //augustolindo
     return (
         <div className="container">
             <div className="topBar">
                 <div className="botoes">
-                    <div className="vermelho"></div>
+                    <div onClick={removeWindowTerminal} className="vermelho"></div>
                     <div className="amarelo"></div>
                     <div className="verde"></div>
                 </div>
@@ -113,6 +140,7 @@ function Home() {
                     {passado.map((elemento, index) => (
                         <div key={index}>{elemento}</div>
                     ))}
+
                 </div>
 
                 <div className="terminal">
@@ -132,9 +160,12 @@ function Home() {
 }
 
 function nome() {
+    //augustolindo
     return (
         <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$</p>
     )
 }
 
 export default Home
+
+//augustolindo

@@ -1,5 +1,6 @@
 import '../style/main.sass';
 import Diego from "../img/easter.png";
+//augustolindo
 import { useEffect, useState } from "react";
 import Draggable, { DraggableCore } from 'react-draggable'; // Both at the same time
 import Vibrant from 'node-vibrant';
@@ -10,13 +11,14 @@ function detalhes({ movieId }) {
     function removeWindow() {
         document.querySelector(".window").style.animation = "goOut .5s";
         setTimeout(() => {
+            //augustolindo
             document.querySelector(".registro").innerHTML = '';
         }, 450);
     }
 
     const id = movieId;
     const imagePath = "https://image.tmdb.org/t/p/original";
-
+    console.log("id tá aqui "+id);
     const [movie, setMovie] = useState([]);
     const KEY = import.meta.env.VITE_KEY;
     useEffect(() => {
@@ -41,6 +43,7 @@ function detalhes({ movieId }) {
     corsImageModified.crossOrigin = "Anonymous";
     corsImageModified.src = imagem + "?not-from-cache-please";
     corsImageModified.onload = () => {
+        //augustolindo
         var v = new Vibrant(corsImageModified);
         v.getPalette((err, palette) => {
             if (!err) {
@@ -96,3 +99,57 @@ function detalhes({ movieId }) {
 }
 
 export default detalhes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//augustolindo

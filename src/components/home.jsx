@@ -2,6 +2,8 @@ import '../style/main.sass';
 import React, { useState, useEffect } from "react";
 import Diego from "../img/easter.png";//augustolindo
 import Detalhes from './detalhes.jsx';
+import Nostalgia from '../img/lullaby.mp3';
+
 //augustolindo
 function Home() {
     const [inputValue, setInputValue] = useState('');
@@ -17,7 +19,10 @@ function Home() {
             .then((data) => {//augustolindo
                 setMovies(data.results);
             });
-    }, [KEY]);
+    }, [KEY]);  
+
+
+    
     let novoElemento;
     const handleKeyDown = (event) => { //comandos
         if (event.key === 'Enter') {
@@ -43,11 +48,11 @@ function Home() {
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
-                            <p>Listando filmes e séries...</p>
+                            <p>📽 <span>|</span> Listando filmes e séries...</p>
                             <p>======================================</p>
                             {movies.map((movie) => {
                                 return (
-                                    <button className='color' onClick={() => CriarCard(movie.id)}><span>| </span>{movie.title} </button>
+                                    <button className='color' onClick={() => CriarCard(movie.id)}>🎞 <span>| </span>{movie.title} </button>
                                 );
                                 //augustolindo
                             })}
@@ -59,7 +64,7 @@ function Home() {
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
-                            <p>Vai aparecer qualquer <span>merda</span> na tela</p>
+                            <p>💩 <span>|</span> Vai aparecer qualquer <span>merda</span> na tela</p>
                         </div>
                     )
                     break;
@@ -67,7 +72,7 @@ function Home() {
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
-                            <p><span>{separado[1] || "O usuário"}</span> é burro</p>
+                            <p>🤡 <span>|</span> <span className='vermei'>{separado[1] || "O usuário"}</span> é burro</p>
                         </div>
                     )
                     break;
@@ -79,13 +84,23 @@ function Home() {
                         </div>
                     )
                     break;
-                case 'joanaxmateus'://augustolindo
+                case 'nostalgia':
+                    new Audio(Nostalgia).play(); //atualmente chorando
                     novoElemento = (
                         <div key={passado.length}>
                             <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
-                            <p>CASAL DA TURMA!!!!!!!</p>
+                            <p>😿 <span>|</span> Isso traz boas lembranças, infelizmente nunca mais terei a sensação de escutá-la pela primeira vez...</p>
                         </div>
-                    )
+                    );
+                    break;
+                case 'salve':
+                case 'oi':
+                    novoElemento = (
+                        <div key={passado.length}>
+                            <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
+                            <p>👋 <span>|</span> Salve</p>
+                        </div>
+                    );
                     break;
                 default://voseéfeio
                     novoElemento = (
@@ -115,7 +130,7 @@ function Home() {
         setPassado([...passado, novoElemento]);
     }
 
-    const removeWindowTerminal = () => {
+    const removeWindowTerminal = () => { //remover telinha de prompt
         document.querySelector(".container").style.animation = "goOut .5s";
         setTimeout(function () {
             document.querySelector(".wrapper").innerHTML = '';

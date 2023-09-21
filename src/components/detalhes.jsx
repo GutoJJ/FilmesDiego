@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 import Draggable, { DraggableCore } from 'react-draggable'; // Both at the same time
 import Vibrant from 'node-vibrant';
 
+
 function detalhes({ movieId }) {
     const titulo = "Titulo";
 
     function removeWindow() {
-        document.querySelector(".window").style.animation = "goOut .5s";
+        document.getElementById(movieId).style.animation = "goOut .5s";
         setTimeout(() => {
             //augustolindo
-            document.querySelector(".registro").innerHTML = '';
+            document.getElementById(movieId).outerHTML = '';
         }, 450);
     }
 
@@ -50,18 +51,17 @@ function detalhes({ movieId }) {
                 const mainColorHex = getDominantColor(palette);
 
                 console.log("Cor principal da imagem em hexadecimal: " + mainColorHex);
-                document.querySelector(".window").style.background = `linear-gradient(90deg, ${mainColorHex} 0.08%, rgba(242, 241, 241, 0.85) 41.34%)`;
+                document.getElementById(movieId).style.background = `linear-gradient(90deg, ${mainColorHex} 0.08%, rgba(242, 241, 241, 0.85) 41.34%)`;
             } else {
                 console.error("Erro ao obter a paleta de cores: " + err);
             }
         });
     };
     function getDominantColor(palette) {
-        // Inicializa a cor dominante e a contagem máxima
+
         let dominantColor = "";
         let maxCount = 0;
-
-        // Itera sobre as cores da paleta
+        
         for (const color in palette) {
             const count = palette[color].population;
             if (count > maxCount) {
@@ -76,7 +76,7 @@ function detalhes({ movieId }) {
         <Draggable
             handle=".topBar"
         >
-            <div className="window">
+            <div className="window" id={movieId}>
                 <div className="topBar" id="branco">
                     <div className="botoes">
                         <div onClick={removeWindow} className="vermelho"></div>

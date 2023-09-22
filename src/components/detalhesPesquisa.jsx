@@ -32,7 +32,6 @@ function detalhesPesquisa({ movieId }) {
                 if (data) {
                     setMovie(data);
                 } else {
-                    // Handle the case where no results are found
                     console.error("No movie data found in the API response.");
                 }
             }); // eslint-disable-next-line

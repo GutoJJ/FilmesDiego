@@ -11,9 +11,13 @@ function Home() {
     const [passado, setPassado] = useState([]);
 
     const imagePath = "https://image.tmdb.org/t/p/original";
+    document.querySelector('.wrapper').style.backgroundSize = '200%';
+    document.querySelector('.wrapper').style.transition = "background-size 1.5s ease";
+    
 
     const [movies, setMovies] = useState([]);
     const KEY = import.meta.env.VITE_KEY;
+
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=pt-BR`)
             .then((response) => response.json())

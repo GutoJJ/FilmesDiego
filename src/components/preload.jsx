@@ -23,7 +23,7 @@ function Preload({ onButtonClick }) {
     return (
         <div className="preload">
             <div className="lock">
-                <img src={pfp} alt="Profile" /> {/* Adicione um atributo alt para a imagem */}
+                <img src={pfp} alt="Profile" /> 
                 <h1>Augusto</h1>
                 <div className="entrar">
                     <input className='inp' placeholder='Password' type="password" />

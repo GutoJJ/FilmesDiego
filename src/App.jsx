@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Home from './components/home.jsx';
 import Preload from './components/preload.jsx';
 import Draggable from 'react-draggable';
-
+import './style/main.sass';
 
 function App() {
   const [showHome, setShowHome] = useState(false);
   const handleButtonClick = () => {
+    
     setShowHome(true);
   }
   useEffect(() => {

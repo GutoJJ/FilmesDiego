@@ -165,7 +165,7 @@ function Home() {
     }
     //augustolindo
     return (
-        <div className="container">
+        <div className="container" id='terminalll'>
             <div className="topBar">
                 <div className="botoes">
                     <div onClick={removeWindowTerminal} className="vermelho"></div>

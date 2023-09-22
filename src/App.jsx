@@ -15,12 +15,12 @@ function App() {
   }, [showHome]);
   return (
     <div className="wrapper">
-      {showHome ? (
+      {/* {showHome ? (
         <Home />
       ) : (
         <Preload onButtonClick={handleButtonClick} />
-      )}
-      {/* <Home /> */}
+      )} */}
+      <Home />
     </div>
   );
 }

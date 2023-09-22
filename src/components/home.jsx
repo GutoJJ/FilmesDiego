@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Diego from "../img/easter.png";//augustolindo
 import Detalhes from './detalhes.jsx';
 import Nostalgia from '../img/lullaby.mp3';
+import Pesquisa from './pesquisa.jsx';
 
 //augustolindo
 function Home() {
@@ -19,10 +20,8 @@ function Home() {
             .then((data) => {//augustolindo
                 setMovies(data.results);
             });
-    }, [KEY]);  
+    }, [KEY]);
 
-
-    
     let novoElemento;
     const handleKeyDown = (event) => { //comandos
         if (event.key === 'Enter') {
@@ -102,6 +101,33 @@ function Home() {
                         </div>
                     );
                     break;
+                case 'kill':
+                    document.getElementById(separado[1]).style.animation = "goOut .5s";
+                    setTimeout(() => {
+                        //augustolindo
+                        document.getElementById(separado[1]).outerHTML = '';
+                    }, 450);
+                    break;
+                case 'find':
+                    if (document.getElementById("TAPESQUISANDO")) {
+                        novoElemento = (
+                            <div className='pesquisar' key={passado.length}>
+                                <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
+                                <p>⚠ <span>|</span> Feche a aba de pesquisa primeiro!</p>
+                            </div>
+                        );
+                    } else {
+                        console.log("Pesquisando: " + separado[1]);
+                        novoElemento = (
+                            <div className='pesquisar' key={passado.length}>
+                                <p>[<span>gutojj</span>]:- [<span>Augusto</span>]$ <span className="color">{inputValue}</span> <br /></p>
+                                <Pesquisa pesquisaTitle={separado[1]} />
+                                <p>Exibindo Pesquisa...</p>
+                            </div>
+                        );
+                    }
+
+                    break;
                 default://voseéfeio
                     novoElemento = (
                         <div key={passado.length}>
@@ -135,7 +161,7 @@ function Home() {
         setTimeout(function () {
             document.querySelector(".wrapper").innerHTML = '';
             location.reload();
-        },450);
+        }, 450);
     }
     //augustolindo
     return (

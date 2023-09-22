@@ -83,12 +83,13 @@ function detalhes({ movieId }) {
                         <div className="amarelo"></div>
                         <div className="verde"></div>
                     </div>
-                    <h2>{movie.title || titulo}</h2>
-
+                    <h2>📽  {movie.title || titulo}</h2>
+                    <p className="faded">{movieId}</p>
                 </div>
                 <div className="cardContent">
                     <img className='poster' src={`${imagePath}${movie.poster_path}`} alt={Diego} />
                     <div className="card-text">
+                        <h2>Nota: <span>{movie.vote_average}🌟 </span></h2>
                         <h2>Data de lançamento: <span>{movie.release_date}</span> </h2>
                         <h2>Descrição: <span>{movie.overview}</span></h2>
                     </div>

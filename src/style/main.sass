@@ -137,7 +137,6 @@ button
 .vermei
     color: #8B0000
 
-
 .lock
     @include mixins.FlexColumn
     height: 100vh
@@ -199,16 +198,74 @@ button
     animation: goIn 1s
     display: flex
     z-index: 200
+    top: 2vh
     flex-direction: column
     justify-content: flex-start
     align-items: flex-start
     box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
-    #branco
-        background: #efefef
+#branco
+    position: fixed !important
+    background: #efefef
+    &:hover
+        cursor: move
+    h2
+        color: #000
+
+#Pesquisa
+    position: absolute !important
+    width: 80vw
+    height: 85vh
+    overflow: hidden
+    .topBar
+        position: fixed !important
+        z-index: 200
+    .results
+        z-index: 2
+        display: grid
+        grid-template-columns: auto
+        gap: 4vh
+        padding-top: 65px
+        width: 100%
+        height: 85vh
+        overflow: scroll
+        padding-bottom: 3vh
+    .movieCard
+        @include mixins.FlexRow 
+        margin: 0 auto
+        width: 95%
+        border-radius: 2rem 
+        height: 50vh
+        background-size: cover
+        background-position: center
+        overflow: hidden
+        transition: .3s
         &:hover
-            cursor: move
+            scale: 103%
+            box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+            .cardDetails
+                backdrop-filter: blur(3px)
+                h2
+                    scale: 125%
+
+    .cardDetails
+        width: 100%
+        height: 100%
+        transition: .3s
+        @include mixins.FlexColumn
+        border-radius: 1rem 
         h2
-            color: #000
+            transition: .3s
+            width: 80%
+            text-align: center
+
+
+.faded
+    color: #aeaeae
+    position: fixed
+    right: 25px
+    line-height: 42px
+    text-align: center
+    margin-bottom: 0
 
 .cardContent
     margin-top: 42px
@@ -227,7 +284,7 @@ button
         height: 100%
         padding: 15px
         gap: 3vh
-    
+
     h2
         color: #000
         font-size: 18px
@@ -242,7 +299,6 @@ button
     aspect-ratio: 9/13
     object-fit: cover
     box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
-
 
 @keyframes fadeOut
     from
@@ -262,10 +318,9 @@ button
     from
         opacity: 1
         scale: 100%
-    to 
+    to
         opacity: 0
         scale: 80%
-        
 
 @keyframes rotate
     from

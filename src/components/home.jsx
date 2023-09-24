@@ -87,6 +87,11 @@ function Home() {
                         </div>
                     )
                     break;
+                case 'bolfe':
+                    novoElemento = (
+                        <div className="moeda" key={passado.length}></div>
+                    );
+                    break;
                 case 'nostalgia':
                     new Audio(Nostalgia).play(); //atualmente chorando
                     novoElemento = (
@@ -169,7 +174,7 @@ function Home() {
     }
     //augustolindo
     return (
-        <div className="container" id='terminalll'>
+        <div className="container" id='all'>
             <div className="topBar">
                 <div className="botoes">
                     <div onClick={removeWindowTerminal} className="vermelho"></div>

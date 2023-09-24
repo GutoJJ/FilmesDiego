@@ -13,6 +13,7 @@ $bg: #ffffff79
     @include mixins.FlexColumn
     width: 100%
     min-height: 100vh
+    overflow: hidden
 
 .preload
     @include mixins.FlexColumn
@@ -213,7 +214,9 @@ button
 
 #Pesquisa
     position: absolute !important
+    background: #f2f1f1da
     width: 80vw
+    backdrop-filter: blur(25px)
     height: 85vh
     overflow: hidden
     .topBar
@@ -230,10 +233,10 @@ button
         overflow: scroll
         padding-bottom: 3vh
     .movieCard
-        @include mixins.FlexRow 
+        @include mixins.FlexRow
         margin: 0 auto
         width: 95%
-        border-radius: 2rem 
+        border-radius: 2rem
         height: 50vh
         background-size: cover
         background-position: center
@@ -253,12 +256,12 @@ button
         height: 100%
         transition: .3s
         @include mixins.FlexColumn
-        border-radius: 2rem 
+        border-radius: 2rem
         h2
             transition: .3s
             width: 80%
             text-align: center
-            font-size: 1.7vw 
+            font-size: 1.7vw
 
 .faded
     color: #aeaeae
@@ -300,6 +303,20 @@ button
     aspect-ratio: 9/13
     object-fit: cover
     box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+
+.moeda
+    width: 300px
+    height: 300px
+    background-image: url('../img/candido_voador.png')
+    background-size: cover
+    animation: girarMoeda .2s linear infinite
+
+@keyframes girarMoeda
+    0%
+        transform: rotateY(0deg)
+
+    100%
+        transform: rotateY(360deg)
 
 @keyframes fadeOut
     from

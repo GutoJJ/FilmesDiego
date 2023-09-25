@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Draggable, { DraggableCore } from 'react-draggable'; // Both at the same time
 import '../style/main.sass';
-import Detalhes from './detalhesPesquisa.jsx';
+import Detalhes from './detalhes.jsx';
 
 function pesquisa({ pesquisaTitle }) {
     const titulo = pesquisaTitle.charAt(0).toUpperCase() + pesquisaTitle.slice(1);

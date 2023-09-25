@@ -24,18 +24,16 @@ function detalhes({ movieId }) {
     const KEY = import.meta.env.VITE_KEY;
     useEffect(() => {
         fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=pt-BR`
+            `https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}&language=pt-BR`
         )
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                const res = data.results;
-                let filme = res.find((key) => {
-                    // eslint-disable-next-line
-
-                    return key.id == id;
-                });
-                setMovie(filme);
+                if (data) {
+                    setMovie(data);
+                } else {
+                    console.error("No movie data found in the API response.");
+                }
             }); // eslint-disable-next-line
     }, []);
 

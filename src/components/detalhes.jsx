@@ -1,25 +1,23 @@
 import '../style/main.sass';
-import Diego from "../img/easter.png";
-//augustolindo
+// import Diego from "../img/easter.png";
+
 import { useEffect, useState } from "react";
 import Draggable, { DraggableCore } from 'react-draggable'; // Both at the same time
 import Vibrant from 'node-vibrant';
 
 
 function detalhes({ movieId }) {
-    const titulo = "Titulo";
-
     function removeWindow() {
         document.getElementById(movieId).style.animation = "goOut .5s";
         setTimeout(() => {
-            //augustolindo
+            
             document.getElementById(movieId).outerHTML = '';
         }, 450);
     }
 
     const id = movieId;
     const imagePath = "https://image.tmdb.org/t/p/original";
-    console.log("id tá aqui "+id);
+    // console.log("id tá aqui "+id);
     const [movie, setMovie] = useState([]);
     const KEY = import.meta.env.VITE_KEY;
     useEffect(() => {
@@ -42,13 +40,13 @@ function detalhes({ movieId }) {
     corsImageModified.crossOrigin = "Anonymous";
     corsImageModified.src = imagem + "?not-from-cache-please";
     corsImageModified.onload = () => {
-        //augustolindo
+        
         var v = new Vibrant(corsImageModified);
         v.getPalette((err, palette) => {
             if (!err) {
                 const mainColorHex = getDominantColor(palette);
 
-                console.log("Cor principal da imagem em hexadecimal: " + mainColorHex);
+                // console.log("Cor principal da imagem em hexadecimal: " + mainColorHex);
                 document.getElementById(movieId).style.background = `linear-gradient(90deg, ${mainColorHex} 0.08%, rgba(242, 241, 241, 0.85) 41.34%)`;
             } else {
                 console.error("Erro ao obter a paleta de cores: " + err);
@@ -81,11 +79,11 @@ function detalhes({ movieId }) {
                         <div className="amarelo"></div>
                         <div className="verde"></div>
                     </div>
-                    <h2>📽  {movie.title || titulo}</h2>
+                    <h2>📽  {movie.title || "Titulo"}</h2>
                     <p className="faded">{movieId}</p>
                 </div>
                 <div className="cardContent">
-                    <img className='poster' src={`${imagePath}${movie.poster_path}`} alt={Diego} />
+                    <img className='poster' src={`${imagePath}${movie.poster_path}`} alt={movie.title || "Titulo"} />
                     <div className="card-text">
                         <h2>Nota: <span>{movie.vote_average}🌟 </span></h2>
                         <h2>Data de lançamento: <span>{movie.release_date}</span> </h2>
@@ -151,4 +149,3 @@ export default detalhes
 
 
 
-//augustolindo

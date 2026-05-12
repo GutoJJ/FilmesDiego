@@ -6,7 +6,7 @@ $bg: #ffffff79
     color: #fff
 
 .wrapper
-    background: url("../img/bg2.jpg")
+    background: url("../img/bg3.jpeg")
     background-position: center
     transition: background-size 1.5s
     background-size: 100%
@@ -145,13 +145,15 @@ button
     img
         border-radius: 100%
         aspect-ratio: 1/1
-        width: 20vw
+        width: 15vw
         height: fit-content
+        object-fit: cover
+        
     h1
-        font-size: 3rem
+        font-size: 2rem
 
     .entrar
-        width: 25vw
+        width: 20vw
         gap: .2rem
         display: flex
         flex-direction: row
@@ -159,11 +161,11 @@ button
         justify-content: flex-end
 .inp
     width: 90%
-    height: 8vh
+    height: 60px
     border-radius: 4vh
     border: 0
     background: $bg
-    font-size: 1.5rem
+    font-size: 25px
     font-weight: 500
     text-align: start
     padding-left: 25px
@@ -173,13 +175,13 @@ button
     &::placeholder
         color: #ffffffa8
 .btn
-    height: 8vh
+    height: 60px
     aspect-ratio: 1/1
     border-radius: 100%
     border: 0
     flex: 1
     background: $bg
-    font-size: 2rem
+    font-size: 25px
     font-weight: 700
     transition: .5s
     text-align: center
@@ -202,7 +204,7 @@ button
     top: 2vh
     flex-direction: column
     justify-content: flex-start
-    align-items: flex-start
+    align-items: flex-start 
     box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
 #branco
     position: fixed !important
@@ -310,6 +312,10 @@ button
     background-image: url('../img/candido_voador.png')
     background-size: cover
     animation: girarMoeda .2s linear infinite
+
+.pointer
+    &:hover
+        cursor: pointer
 
 @keyframes girarMoeda
     0%

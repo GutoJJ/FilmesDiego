@@ -8,7 +8,7 @@ function pesquisa({ pesquisaTitle }) {
     function removeWindowPesquisa() {
         document.getElementById("Pesquisa").style.animation = "goOut .5s";
         setTimeout(() => {
-            //augustolindo
+            
             document.getElementById("Pesquisa").outerHTML = '';
         }, 450);
     }
@@ -21,7 +21,7 @@ function pesquisa({ pesquisaTitle }) {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/search/movie?query=${pesquisaTitle}&api_key=${KEY}&language=pt-BR`)
             .then((response) => response.json())
-            .then((data) => {//augustolindo
+            .then((data) => {
                 console.log(data);
                 setMovies(data.results);
             });
@@ -68,7 +68,7 @@ function pesquisa({ pesquisaTitle }) {
                                     </div>
                                 </div>
                             );
-                            //augustolindo
+                            
                         })}
                     </div>
 

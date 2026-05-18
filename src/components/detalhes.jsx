@@ -75,9 +75,9 @@ function detalhes({ movieId }) {
             <div className="window" id={movieId}>
                 <div className="topBar" id="branco">
                     <div className="botoes">
-                        <div onClick={removeWindow} className="vermelho"></div>
-                        <div className="amarelo"></div>
-                        <div className="verde"></div>
+                        <div onClick={removeWindow} className="vermelho botao"></div>
+                        <div className="amarelo botao"></div>
+                        <div className="verde botao"></div>
                     </div>
                     <h2>📽  {movie.title || "Titulo"}</h2>
                     <p className="faded">{movieId}</p>

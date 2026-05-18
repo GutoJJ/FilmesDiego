@@ -49,9 +49,9 @@ function pesquisa({ pesquisaTitle }) {
                 <div className="window" id="Pesquisa">
                     <div className="topBar" id="branco">
                         <div className="botoes">
-                            <div className="vermelho" onClick={removeWindowPesquisa}></div>
-                            <div className="amarelo"></div>
-                            <div className="verde" id="TAPESQUISANDO"></div>
+                            <div className="vermelho botao" onClick={removeWindowPesquisa}></div>
+                            <div className="amarelo botao"></div>
+                            <div className="verde botao" id="TAPESQUISANDO"></div>
                         </div>
                         <h2>🔍 {titulo}</h2>
                     </div>

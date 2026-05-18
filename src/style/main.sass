@@ -1,12 +1,14 @@
 @use 'mixins'
 $bg: #ffffff79
+$verde: #4ADE80
 *
     margin: 0
     padding: 0
     color: #fff
 
 .wrapper
-    background: url("../img/bg3.jpeg")
+    // background: url("../img/bg3.jpeg")
+    background: url("../img/bg4.png")
     background-position: center
     transition: background-size 1.5s
     background-size: 100%
@@ -20,6 +22,7 @@ $bg: #ffffff79
     width: 100%
     min-height: 100vh
     backdrop-filter: blur(15px)
+
 h1,h2
     font-family: 'Montserrat', sans-serif
 
@@ -28,24 +31,61 @@ h1,h2
     visibility: hidden
 
 .container
-    width: 90vw
-    background: #1f1f1fe4
+    width: 100%
+    min-height: 100vh
+    @include mixins.FlexColumn
+    justify-content: center
+    align-items: center
+    gap: 2vh
+
+.bdTarefas
+    width: 100%
+    height: 25px
+    position: fixed
+    top: 0
+    padding: 15px 0
+    // border: 2px red solid
+    img
+        height: 25px
+        object-fit: cover
+    .left
+        height: 100%
+        padding-left: 15px
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: flex-start
+        gap: 15px
+        .open
+            animation: slideEnterTop 1s ease
+        p
+            font-size: 18px
+            line-height: 40px
+            margin: 0
+            font-weight: 900
+            font-family: 'Montserrat', sans-serif
+            animation: slideEnterTop 1.3s ease
+
+.mcOS
+    width: 85vw
+    background: radial-gradient(circle at top left, #1E3A8A33, transparent 35%),radial-gradient(circle at bottom right, #7C3AED22, transparent 35%),#0b1020c1
     background-position: center
     background-size: cover
     backdrop-filter: blur(25px)
-    height: 90vh
+    height: 85vh
     border-radius: 2rem
     animation: goIn 1s
     display: flex
     flex-direction: column
     justify-content: flex-start
     align-items: flex-start
-    box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
+    box-shadow: 0 10px 30px rgba(0,0,0,.4), 0 0 30px rgba(122,162,247,.08)
 
 .topBar
     width: 100%
     height: 42px
-    background: #1f1f1f
+    background: #0b1020da
+    backdrop-filter: blur(20px)
     display: flex
     align-items: center
     border-radius: 2rem 2rem 0rem 0rem
@@ -53,29 +93,31 @@ h1,h2
     .botoes
         @include mixins.FlexRow
         position: absolute
-    div
-        margin-left: 13px
+        margin-left: 43px
+        gap: 13px
+    .botao
         height: 20px
         border-radius: 100%
         aspect-ratio: 1/1
+        transition: .3s
         &:hover
             cursor: pointer
+            scale: 115%
     .vermelho
-        margin-left: 30px
-        background: #f00
-        box-shadow: 0px 2px 4px 0px rgba(255, 0, 0, 0.10), 0px 7px 7px 0px rgba(255, 0, 0, 0.09), 0px 15px 9px 0px rgba(255, 0, 0, 0.05), 0px 27px 11px 0px rgba(255, 0, 0, 0.01), 0px 43px 12px 0px rgba(255, 0, 0, 0.00)
+
+        background: #FF5F57
     .amarelo
-        background: #ff0
-        box-shadow: 0px 2px 4px 0px rgba(255, 255, 0, 0.10), 0px 7px 7px 0px rgba(255, 255, 0, 0.09), 0px 15px 9px 0px rgba(255, 255, 0, 0.05), 0px 27px 11px 0px rgba(255, 255, 0, 0.01), 0px 43px 12px 0px rgba(255, 255, 0, 0.00)
+        background: #FEBC2E
+
     .verde
-        background: #0f0
-        box-shadow: 0px 2px 4px 0px rgba(0, 238, 0, 0.10), 0px 7px 7px 0px rgba(0, 238, 0, 0.09), 0px 15px 9px 0px rgba(0, 238, 0, 0.05), 0px 27px 11px 0px rgba(0, 238, 0, 0.01), 0px 43px 12px 0px rgba(0, 238, 0, 0.00)
+        background: #28C840
+
     h2
         text-align: center
         width: 100%
 
 .content
-    font-family: monospace
+    font-family: 'JetBrains Mono', monospace
     padding: 15px
     font-size: 20px
     width: 100%
@@ -84,13 +126,18 @@ h1,h2
     border-radius: 2rem
 
 span
-    color: #C3E88D
+    color: $verde
 
 .header-text
     width: fit-content
     padding-bottom: 10px
-    border-bottom: 3px dashed #C3E88D
+    border-bottom: 3px dashed $verde
     margin-top: 42px
+
+.welcome-message
+    width: fit-content
+    padding-bottom: 10px
+    border-bottom: 3px dashed $verde
 
 p
     margin-bottom: 5px
@@ -104,7 +151,7 @@ p
     justify-content: flex-start
     gap: 11px
     input
-        font-family: monospace
+        font-family: 'JetBrains Mono', monospace
         font-size: 20px
         width: 50%
         outline: none
@@ -113,13 +160,11 @@ p
         margin-bottom: 5px
 
 .color
-    color: #FFA500
+    color: #c0a2f8
 
-.diego
-    width: 150px
-    object-fit: cover
-    aspect-ratio: 1/1
-    animation: rotate 30s linear
+.registro
+    p
+        margin-top: 5px
 
 button
     width: 100%
@@ -130,13 +175,15 @@ button
     justify-content: start
     margin-left: 15px
     margin-bottom: 5px
-    font-family: monospace
+    font-family: 'JetBrains Mono', monospace
     font-size: 20px
+    transition: .3s
     &:hover
         cursor: pointer
-        color: #8B0000
+        scale: 101%
+        color: #FACC15
 .vermei
-    color: #8B0000
+    color: #FACC15
 
 .lock
     @include mixins.FlexColumn
@@ -148,7 +195,7 @@ button
         width: 15vw
         height: fit-content
         object-fit: cover
-        
+
     h1
         font-size: 2rem
 
@@ -204,7 +251,7 @@ button
     top: 2vh
     flex-direction: column
     justify-content: flex-start
-    align-items: flex-start 
+    align-items: flex-start
     box-shadow: 0px 12px 26px 0px rgba(31, 31, 31, 0.23), 0px 48px 48px 0px rgba(31, 31, 31, 0.20), 0px 107px 64px 0px rgba(31, 31, 31, 0.12), 0px 191px 76px 0px rgba(31, 31, 31, 0.03), 0px 298px 83px 0px rgba(31, 31, 31, 0.00)
 #branco
     position: fixed !important
@@ -351,3 +398,12 @@ button
         width: 150px
     to
         width: 600px
+
+@keyframes slideEnterTop
+    0%
+        opacity: 0
+        transform: translateY(-100%)
+    90%
+        opacity: 1
+    100%
+        transform: translateY(0)
